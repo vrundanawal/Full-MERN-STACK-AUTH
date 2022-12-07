@@ -18,6 +18,12 @@ const Login = () => {
       }),
     });
     const data = await response.json();
+    if (data.user) {
+      alert("Login Successfully!!");
+      window.location.href = "/dashboard";
+    } else {
+      alert("Please check your username and password");
+    }
     console.log("User login :-", data);
   };
   return (
