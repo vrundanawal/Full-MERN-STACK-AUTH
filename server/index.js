@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const User = require("./models/user.model");
 
 //app use cors as a middleware
 app.use(cors());
@@ -13,15 +14,45 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   },
   () => {
     console.log("DB Connected successfully!!");
   }
 );
 
-app.post("/api/register", (req, res) => {
+// app.post("/api/register", (req, res) => {
+//   console.log(req.body);
+//   res.json({ status: "ok" });
+// });
+
+//register
+app.post("/api/register", async (req, res) => {
   console.log(req.body);
-  res.json({ status: "ok" });
+  try {
+    await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    res.json({ status: "ok" });
+  } catch (err) {
+    console.log(err);
+    res.json({ status: "error", error: "Duplicate email" });
+  }
+});
+
+//login
+app.post("/api/login", async (req, res) => {
+  const user = await User.findOne({
+    email: req.body.email,
+    password: req.body.password,
+  });
+  if (user) {
+    return res.json({ status: "ok", user: true });
+  } else {
+    return res.json({ status: "error", user: false });
+  }
 });
 
 app.listen(1337, () => {
