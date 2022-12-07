@@ -20,4 +20,4 @@ CORS is a node.js package for providing a Connect/Express middleware that can be
 7) Middleware is just a function which manupulate the response and pass to the next function
 8)npm i mongoose
 mongoose allow to define models and work with mongoDb. It is used for data validation and schema validation as well.
-9)
+9)npm i jsonwebtoken

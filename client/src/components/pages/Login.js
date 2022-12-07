@@ -18,7 +18,7 @@ const Login = () => {
       }),
     });
     const data = await response.json();
-    console.log(data);
+    console.log("User login :-", data);
   };
   return (
     <div>
