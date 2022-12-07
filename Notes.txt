@@ -15,3 +15,9 @@ Express is node js framework
     "dev": "nodemon index.js"
   },
 5)npm run dev
+6) npm i cors
+CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+7) Middleware is just a function which manupulate the response and pass to the next function
+8)npm i mongoose
+mongoose allow to define models and work with mongoDb. It is used for data validation and schema validation as well.
+9)
