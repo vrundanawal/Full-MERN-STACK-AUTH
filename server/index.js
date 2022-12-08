@@ -22,21 +22,29 @@ mongoose.connect(
   }
 );
 
-// app.post("/api/register", (req, res) => {
-//   console.log(req.body);
-//   res.json({ status: "ok" });
-// });
-
 //register
 app.post("/api/register", async (req, res) => {
   console.log(req.body);
   try {
+    const userEmail = await User.findOne({
+      email: req.body.email,
+    });
+    if (userEmail) {
+      res.send({ message: "Email already registered!!" });
+    }
+
     await User.create({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
-    res.json({ status: "ok" });
+
+    res.json({
+      status: "ok",
+      message: "Successfully Registered! Please login now",
+      user: req.body,
+      //message: `${User.name} Successfully Registered! Please login now `,
+    });
   } catch (err) {
     console.log(err);
     res.json({ status: "error", error: "Duplicate email" });

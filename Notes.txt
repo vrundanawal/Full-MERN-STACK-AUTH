@@ -14,7 +14,7 @@ Express is node js framework
   "scripts": {
     "dev": "nodemon index.js"
   },
-5)npm run dev
+5)To run the server :- npm run dev or node index.js
 6) npm i cors
 CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 7) Middleware is just a function which manupulate the response and pass to the next function

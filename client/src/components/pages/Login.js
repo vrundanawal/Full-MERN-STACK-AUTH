@@ -20,7 +20,7 @@ const Login = () => {
     const data = await response.json();
     if (data.user) {
       alert("Login Successfully!!");
-      window.location.href = "/dashboard";
+      window.location.href = "/";
     } else {
       alert("Please check your username and password");
     }
