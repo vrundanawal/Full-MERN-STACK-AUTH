@@ -20,6 +20,8 @@ const Login = () => {
     const data = await response.json();
 
     if (data.user) {
+      //set token in local storage
+      localStorage.setItem("token", data.user);
       alert("Login Successfully!!");
       //after successful login send to dashboard page
       window.location.href = "/dashboard";
