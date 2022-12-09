@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const Dashboard = () => {
   const history = useHistory();
   const populateData = async () => {
-    const req = await fetch("http://localhost:1337/api/data", {
+    const req = await fetch("http://localhost:1337/api/quote", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },

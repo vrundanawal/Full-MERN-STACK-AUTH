@@ -73,6 +73,23 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+//quote
+app.get("/api/quote", async (req, res) => {
+  //get the token from request header
+  const token = req.headers["x-access-token"];
+  try {
+    //perform the authentication
+    const decoded = jwt.verify(token, "secret123");
+    const email = decoded.email;
+    const user = await User.findOne({ email: email });
+
+    return { status: "ok", quote: user.quote };
+  } catch (error) {
+    console.log(error);
+    res.json({ status: "error", error: "invalid token" });
+  }
+});
+
 app.listen(1337, () => {
   console.log("Server started on 1337");
 });
