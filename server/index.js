@@ -41,8 +41,8 @@ app.post("/api/register", async (req, res) => {
 
     res.json({
       status: "ok",
-      message: "Successfully Registered! Please login now",
-      user: req.body,
+      //message: "Successfully Registered! Please login now",
+      // user: req.body,
       //message: `${User.name} Successfully Registered! Please login now `,
     });
   } catch (err) {

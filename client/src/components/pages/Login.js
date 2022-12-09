@@ -18,6 +18,7 @@ const Login = () => {
       }),
     });
     const data = await response.json();
+
     if (data.user) {
       alert("Login Successfully!!");
       //after successful login send to dashboard page

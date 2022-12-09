@@ -29,7 +29,7 @@ const Dashboard = () => {
         populateData();
       }
     }
-  }, []);
+  }, [history]);
 
   return <div>Dashboard</div>;
 };
