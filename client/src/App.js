@@ -10,7 +10,7 @@ const App = () => {
       <BrowserRouter>
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <Route path="/" exact component={Dashboard} />
+        <Route path="/dashboard" exact component={Dashboard} />
       </BrowserRouter>
     </div>
   );

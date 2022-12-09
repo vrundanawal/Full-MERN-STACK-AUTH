@@ -21,3 +21,4 @@ CORS is a node.js package for providing a Connect/Express middleware that can be
 8)npm i mongoose
 mongoose allow to define models and work with mongoDb. It is used for data validation and schema validation as well.
 9)npm i jsonwebtoken
+10) to see the value get the string betwen two dots and put inside the string with atob('---') .So we will get the user details in readable format.
