@@ -83,7 +83,7 @@ app.get("/api/quote", async (req, res) => {
     const email = decoded.email;
     const user = await User.findOne({ email: email });
 
-    return { status: "ok", quote: user.quote };
+    return res.json({ status: "ok", quote: user.quote });
   } catch (error) {
     console.log(error);
     res.json({ status: "error", error: "invalid token" });
@@ -99,7 +99,7 @@ app.post("/api/quote", async (req, res) => {
     const email = decoded.email;
     await User.updateOne({ email: email }, { $set: { quote: req.body.quote } });
 
-    return { status: "ok" };
+    return res.json({ status: "ok" });
   } catch (error) {
     console.log(error);
     res.json({ status: "error", error: "invalid token" });
